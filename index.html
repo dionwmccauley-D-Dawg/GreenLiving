@@ -17,6 +17,7 @@
         </div>
         <div id="product-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4"></div>
     </div>
+    <script src="https://js.stripe.com/v3/"></script>
     <script>
         // Load products from inventory.json
         fetch('/inventory.json')
@@ -99,7 +100,14 @@
                         throw new Error(errorData.error || `HTTP error! Status: ${response.status}`);
                     }
                     const data = await response.json();
-                    window.location.href = `https://checkout.stripe.com/c/pay/${data.id}?client=ca_51Rn5OUKHOkbIJcHX`;
+                    const stripe = Stripe('pk_test_51Rn5OUKHOkbIJcHXZLhS6WVMYnxVG6WABeRoJiQdF1LrH8ccfweIGOARLby8vSeFsAi06ZKxgO1cCCdhChHEDy9Q00LCRnDv10');
+                    const { error } = await stripe.redirectToCheckout({
+                        sessionId: data.id,
+                        locale: 'en'
+                    });
+                    if (error) {
+                        throw new Error(error.message);
+                    }
                 } catch (error) {
                     console.error('Checkout error:', error.message);
                     alert(`Failed to proceed to checkout: ${error.message}. Please try again.`);
