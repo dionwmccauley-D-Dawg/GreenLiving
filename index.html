@@ -66,15 +66,15 @@
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ items: cartItems })
             });
+            const data = await response.json();
             if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
+                throw new Error(data.error || `HTTP error! Status: ${response.status}`);
             }
-            const session = await response.json();
             const stripe = Stripe('pk_test_51Rn5OUKHOkbIJcHXZLhS6WVMYnxVG6WABeRoJiQdF1LrH8ccfweIGOARLby8vSeFsAi06ZKxgO1cCCdhChHEDy9Q00LCRnDv10');
-            await stripe.redirectToCheckout({ sessionId: session.id });
+            await stripe.redirectToCheckout({ sessionId: data.id });
         } catch (error) {
-            console.error('Checkout error:', error);
-            alert('Failed to proceed to checkout. Please try again.');
+            console.error('Checkout error:', error.message);
+            alert(`Failed to proceed to checkout: ${error.message}. Please try again.`);
         }
     });
 
