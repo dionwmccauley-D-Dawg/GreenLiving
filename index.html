@@ -17,7 +17,7 @@
         </div>
         <div id="product-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4"></div>
     </div>
-    <script src="https://js.stripe.com/v3/"></script>
+    <script src="https://js.stripe.com/v3/?v=3"></script>
     <script>
         // Load products from inventory.json
         fetch('/inventory.json')
@@ -27,6 +27,7 @@
             })
             .then(products => {
                 const productContainer = document.getElementById('product-container');
+                if (!productContainer) throw new Error('Product container not found');
                 productContainer.innerHTML = '';
                 Object.values(products).forEach(product => {
                     const productCard = document.createElement('div');
@@ -49,6 +50,10 @@
         const cartTotal = document.getElementById('cart-total');
 
         function updateCart() {
+            if (!cartCount || !cartItemsContainer || !cartTotal) {
+                console.error('Cart elements not found');
+                return;
+            }
             cartCount.textContent = cartItems.length;
             cartItemsContainer.innerHTML = '';
             let total = 0;
@@ -77,34 +82,39 @@
         }
 
         // Checkout
-        document.getElementById('checkout-button').addEventListener('click', async () => {
-            const cartItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
-            if (cartItems.length === 0) {
-                alert('Your cart is empty!');
-                return;
-            }
-            try {
-                const response = await fetch('/api/create-checkout-session', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ items: cartItems })
-                });
-                const data = await response.json();
-                if (!response.ok) {
-                    throw new Error(data.error || `HTTP error! Status: ${response.status}`);
+        const checkoutButton = document.getElementById('checkout-button');
+        if (checkoutButton) {
+            checkoutButton.addEventListener('click', async () => {
+                const cartItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
+                if (cartItems.length === 0) {
+                    alert('Your cart is empty!');
+                    return;
                 }
-                const stripe = Stripe('pk_test_51Rn5OUKHOkbIJcHXZLhS6WVMYnxVG6WABeRoJiQdF1LrH8ccfweIGOARLby8vSeFsAi06ZKxgO1cCCdhChHEDy9Q00LCRnDv10', {
-                    locale: 'en' // Explicitly set locale to English
-                });
-                const { error } = await stripe.redirectToCheckout({ sessionId: data.id });
-                if (error) {
-                    throw new Error(error.message);
+                try {
+                    const response = await fetch('/api/create-checkout-session', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ items: cartItems })
+                    });
+                    const data = await response.json();
+                    if (!response.ok) {
+                        throw new Error(data.error || `HTTP error! Status: ${response.status}`);
+                    }
+                    const stripe = Stripe('pk_test_51Rn5OUKHOkbIJcHXZLhS6WVMYnxVG6WABeRoJiQdF1LrH8ccfweIGOARLby8vSeFsAi06ZKxgO1cCCdhChHEDy9Q00LCRnDv10', {
+                        locale: 'en' // Explicitly set locale to English
+                    });
+                    const { error } = await stripe.redirectToCheckout({ sessionId: data.id });
+                    if (error) {
+                        throw new Error(error.message);
+                    }
+                } catch (error) {
+                    console.error('Checkout error:', error.message);
+                    alert(`Failed to proceed to checkout: ${error.message}. Please try again.`);
                 }
-            } catch (error) {
-                console.error('Checkout error:', error.message);
-                alert(`Failed to proceed to checkout: ${error.message}. Please try again.`);
-            }
-        });
+            });
+        } else {
+            console.error('Checkout button not found');
+        }
 
         // Initialize cart
         updateCart();
