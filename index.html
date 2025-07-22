@@ -102,8 +102,7 @@
                     const data = await response.json();
                     const stripe = Stripe('pk_test_51Rn5OUKHOkbIJcHXZLhS6WVMYnxVG6WABeRoJiQdF1LrH8ccfweIGOARLby8vSeFsAi06ZKxgO1cCCdhChHEDy9Q00LCRnDv10');
                     const { error } = await stripe.redirectToCheckout({
-                        sessionId: data.id,
-                        locale: 'en'
+                        sessionId: data.id
                     });
                     if (error) {
                         throw new Error(error.message);
