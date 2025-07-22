@@ -99,6 +99,7 @@
                         throw new Error(errorData.error || `HTTP error! Status: ${response.status}`);
                     }
                     const data = await response.json();
+                    console.log('Session ID:', data.id); // Log for debugging
                     window.location.href = `https://checkout.stripe.com/c/pay/${data.id}`;
                 } catch (error) {
                     console.error('Checkout error:', error.message);
