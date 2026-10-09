@@ -100,7 +100,7 @@
                     }
                     const data = await response.json();
                     console.log('Session ID:', data.id); // Log for debugging
-                    window.location.href = `https://checkout.stripe.com/c/pay/${data.id}`;
+                    window.location.href = data.url;
                 } catch (error) {
                     console.error('Checkout error:', error.message);
                     alert(`Failed to proceed to checkout: ${error.message}. Please try again.`);
