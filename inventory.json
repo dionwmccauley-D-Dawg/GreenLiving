@@ -2,16 +2,57 @@
   "1": {
     "id": "1",
     "name": "Stainless Steel Water Bottle",
-    "price": 19.99,
-    "stock": 10,
-    "image": "https://via.placeholder.com/300"
+    "price": 24.00,
+    "stock": 12,
+    "image": "https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=600&q=80"
   },
   "2": {
     "id": "2",
     "name": "Bamboo Toothbrush",
-    "price": 4.99,
+    "price": 5.00,
+    "stock": 40,
+    "image": "https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?auto=format&fit=crop&w=600&q=80"
+  },
+  "3": {
+    "id": "3",
+    "name": "Beeswax Food Wrap Set",
+    "price": 16.00,
+    "stock": 15,
+    "image": "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=600&q=80"
+  },
+  "4": {
+    "id": "4",
+    "name": "Swedish Dishcloth 2-Pack",
+    "price": 10.00,
     "stock": 20,
-    "image": "https://via.placeholder.com/300"
+    "image": "https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&fit=crop&w=600&q=80"
+  },
+  "5": {
+    "id": "5",
+    "name": "Wool Dryer Balls 3-Pack",
+    "price": 18.00,
+    "stock": 12,
+    "image": "https://images.unsplash.com/photo-1582735689369-4fe89db7114c?auto=format&fit=crop&w=600&q=80"
+  },
+  "6": {
+    "id": "6",
+    "name": "Shampoo Bar",
+    "price": 12.00,
+    "stock": 20,
+    "image": "https://images.unsplash.com/photo-1600857544200-b2f666a9a2ec?auto=format&fit=crop&w=600&q=80"
+  },
+  "7": {
+    "id": "7",
+    "name": "Reusable Produce Bags",
+    "price": 14.00,
+    "stock": 15,
+    "image": "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=600&q=80"
+  },
+  "8": {
+    "id": "8",
+    "name": "Safety Razor",
+    "price": 28.00,
+    "stock": 8,
+    "image": "https://images.unsplash.com/photo-1621607512022-6aecc4fed814?auto=format&fit=crop&w=600&q=80"
   }
 }
-
