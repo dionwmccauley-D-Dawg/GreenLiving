@@ -11,48 +11,48 @@
     "name": "Bamboo Toothbrush",
     "price": 5.00,
     "stock": 40,
-    "image": "https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?auto=format&fit=crop&w=600&q=80"
+    "image": "https://images.pexels.com/photos/3654597/pexels-photo-3654597.jpeg?auto=compress&cs=tinysrgb&w=600"
   },
   "3": {
     "id": "3",
     "name": "Beeswax Food Wrap Set",
     "price": 16.00,
     "stock": 15,
-    "image": "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=600&q=80"
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Beeswax_Wrap.jpg?width=600"
   },
   "4": {
     "id": "4",
     "name": "Swedish Dishcloth 2-Pack",
     "price": 10.00,
     "stock": 20,
-    "image": "https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&fit=crop&w=600&q=80"
+    "image": "https://images.pexels.com/photos/4805220/pexels-photo-4805220.jpeg?auto=compress&cs=tinysrgb&w=600"
   },
   "5": {
     "id": "5",
     "name": "Wool Dryer Balls 3-Pack",
     "price": 18.00,
     "stock": 12,
-    "image": "https://images.unsplash.com/photo-1582735689369-4fe89db7114c?auto=format&fit=crop&w=600&q=80"
+    "image": "https://images.pexels.com/photos/7612424/pexels-photo-7612424.jpeg?auto=compress&cs=tinysrgb&w=600"
   },
   "6": {
     "id": "6",
     "name": "Shampoo Bar",
     "price": 12.00,
     "stock": 20,
-    "image": "https://images.unsplash.com/photo-1600857544200-b2f666a9a2ec?auto=format&fit=crop&w=600&q=80"
+    "image": "https://images.pexels.com/photos/7262414/pexels-photo-7262414.jpeg?auto=compress&cs=tinysrgb&w=600"
   },
   "7": {
     "id": "7",
     "name": "Reusable Produce Bags",
     "price": 14.00,
     "stock": 15,
-    "image": "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=600&q=80"
+    "image": "https://images.pexels.com/photos/4440170/pexels-photo-4440170.jpeg?auto=compress&cs=tinysrgb&w=600"
   },
   "8": {
     "id": "8",
     "name": "Safety Razor",
     "price": 28.00,
     "stock": 8,
-    "image": "https://images.unsplash.com/photo-1621607512022-6aecc4fed814?auto=format&fit=crop&w=600&q=80"
+    "image": "https://images.pexels.com/photos/3654937/pexels-photo-3654937.jpeg?auto=compress&cs=tinysrgb&w=600"
   }
 }
